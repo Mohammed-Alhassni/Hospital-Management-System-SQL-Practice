@@ -112,3 +112,5 @@ create table Billing
 	constraint fk_bil_app foreign key (Appointment_id) references Appointment(Appointment_id),
 	constraint fk_bil_pat foreign key (Patient_id) references Patient(Patient_id)
 )
+
+alter table billing add Payment_status varchar(20) 
