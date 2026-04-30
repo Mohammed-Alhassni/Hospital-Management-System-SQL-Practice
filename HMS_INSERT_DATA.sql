@@ -87,3 +87,7 @@ INSERT INTO Billing (Bill_id, Bill_date, Total_amount, Payment_method, Due_date,
 (5, '2026-04-07', 55.000, 'Cash', '2026-04-11', 7, 5),
 (6, '2026-04-09', 30.000, 'Card', '2026-04-13', 9, 1),
 (7, '2026-04-10', 65.000, 'Insurance', '2026-04-14', 10, 4);
+
+UPDATE Billing SET payment_status = 'Paid' WHERE Bill_id IN (1, 3, 4, 6);
+UPDATE Billing SET payment_status = 'Partial' WHERE Bill_id IN (2, 7);
+UPDATE Billing SET payment_status = 'Pending' WHERE Bill_id IN (5);
