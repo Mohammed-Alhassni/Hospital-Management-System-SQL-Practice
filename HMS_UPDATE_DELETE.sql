@@ -21,3 +21,16 @@ select * from Doctor
 update Doctor set Dept_id = 4 where Doctor_id = 2
 
 
+/*Delete Task*/
+
+-- 1. Delete one cancelled appointment.
+select * from Appointment
+delete from Appointment_service where Appointment_id = 5
+delete from Billing where Appointment_id = 5
+delete from Medical_record where Appointment_id = 5
+delete from Appointment where Appointment_id = 5
+
+-- 2. Delete one service that was never used.
+
+-- 3. Delete one billing record entered by mistake.
+-- 4. Try to delete a patient who has appointments and explain why it fails. 
