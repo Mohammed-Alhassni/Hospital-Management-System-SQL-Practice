@@ -1,3 +1,5 @@
+use HMS2
+
 select * from Appointment
 
 select * from Appointment_service
