@@ -21,5 +21,30 @@ select Appointment.Appointment_id, Appointment.Appointment_type, Appointment.Dat
 inner join Patient on Patient.Patient_id = Appointment.Patient_id
 where status = 'Completed'
 
-select * from Doctor
-select * from Department
+select Doctor.*, Department.* from Doctor
+full join Department on Department.Dept_id = Doctor.Dept_id
+where Dept_name = 'Cardiology'
+
+select * from Service where Unit_price > 20
+
+/* PART 3: CHALLENGE */
+select Patient.F_name + ' ' + Patient.L_name as [full_name], Doctor.Name, Appointment.Date from Appointment
+inner join Doctor on Doctor.Doctor_id = Appointment.Doctor_id
+inner join Patient on Patient.Patient_id = Appointment.Patient_id
+
+select Patient.F_name + ' ' + Patient.L_name as [full_name], Department.Dept_name, Appointment.Status from Appointment
+inner join Doctor on Doctor.Doctor_id = Appointment.Doctor_id
+inner join Department on Doctor.Dept_id = Department.Dept_id
+inner join Patient on Patient.Patient_id = Appointment.Patient_id
+
+select Patient.F_name + ' ' + Patient.L_name as [full_name], Service.Service_name, Appointment_service.Quantity from Appointment_service
+inner join Service on Service.Service_id =  Appointment_service.Service_id
+inner join Appointment on Appointment.Appointment_id = Appointment_service.Appointment_id
+inner join Patient on Patient.Patient_id = Appointment.Patient_id
+
+/* FINAL CHALLENGE */
+select Patient.F_name + ' ' + Patient.L_name as [full_name], Doctor.Name, Service.Service_name, Appointment.Date from Appointment
+inner join Appointment_service on Appointment.Appointment_id =  Appointment_service.Appointment_id
+inner join Service on Service.Service_id = Appointment_service.Service_id
+inner join Patient on Patient.Patient_id = Appointment.Patient_id
+inner join Doctor on Doctor.Doctor_id = Appointment.Doctor_id
