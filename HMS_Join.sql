@@ -15,3 +15,11 @@ inner join Doctor on Doctor.Doctor_id = Appointment.Doctor_id
 
 select Service.Service_name, Service.Unit_price, Department.Dept_name from Service
 inner join Department on Department.Dept_id = Service.Dept_id
+
+/* PART 2: APPLY FILTER */
+select Appointment.Appointment_id, Appointment.Appointment_type, Appointment.Date, Appointment.Reason, Appointment.Time, Appointment.Status, Patient.F_name + ' ' + Patient.L_name as [full_name] from Appointment 
+inner join Patient on Patient.Patient_id = Appointment.Patient_id
+where status = 'Completed'
+
+select * from Doctor
+select * from Department
